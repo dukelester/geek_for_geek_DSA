@@ -72,4 +72,19 @@ def find_urls(string):
     url = re.findall(regex, string)
     return [ x[0] for x in url ]
 
-print(find_urls('My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles in the portal of https://www.geeksforgeeks.org/'))
+print(find_urls('''My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles
+                in the portal of https://www.geeksforgeeks.org/'''))
+
+def find_other_urls(string2):
+    ''' Use the startswith method
+    '''
+    my_string = string2.split()
+    result = []
+    for i in my_string:
+        if i.startswith('https') or i.startswith('http'):
+            result.append(i)
+    return result
+text = '''My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles
+in the portal of https://www.geeksforgeeks.org/
+'''
+print(find_other_urls(text))
