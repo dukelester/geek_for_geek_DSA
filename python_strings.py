@@ -88,3 +88,14 @@ text = '''My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articl
 in the portal of https://www.geeksforgeeks.org/
 '''
 print(find_other_urls(text))
+
+def find_urls_using_find(text):
+    '''Use the find method to find the urls '''
+    my_text = text.split()
+    result = []
+    for i in my_text:
+        if i.find('https') == 0 or i.find('http') == 0:
+            result.append(i)
+    return result
+
+print(find_urls_using_find(text))
