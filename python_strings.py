@@ -65,3 +65,11 @@ def check_pass_validity(password_string):
     if not valid:
         print('The password is invalid!!')
 print(check_pass_validity('dukelester'), check_pass_validity('R@m@_f0rtu9e$'))
+
+
+def find_urls(string):
+    regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
+    url = re.findall(regex, string)
+    return [ x[0] for x in url ]
+
+print(find_urls('My Profile: https://auth.geeksforgeeks.org/user/Chinmoy%20Lenka/articles in the portal of https://www.geeksforgeeks.org/'))
