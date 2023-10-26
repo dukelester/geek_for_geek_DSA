@@ -119,6 +119,26 @@ def post_order_traversal(root_node):
     post_order_traversal(root_node.right_child)
     print(root_node.data)
 
+
+# The Breath First Traversal -> Level order traversal
+
+def level_order_traversal(root_node):
+    ''' Get all the nodes at levels'''
+    if not root_node:
+        return
+    print(root_node.data)
+    temp_queue = Queue()
+    # Add the root node => level 1
+    temp_queue.enqueue(root_node)
+    while not temp_queue.is_empty():
+        print('added success')
+        root = temp_queue.dequeue()
+        print(root.data)
+        if root.data.left_child:
+            temp_queue.enqueue(root.data.left_child)
+        if root.data.right_child:
+            temp_queue.enqueue(root.data.right_child)
+
 new_tree = TreeNode('Drinks')
 print(new_tree.data)
 left_child = TreeNode('Hot')
@@ -142,3 +162,26 @@ print('\n The inorder traversal \n')
 inorder_traversal(new_tree)
 print('\n The inorder traversal \n')
 post_order_traversal(new_tree)
+
+print('**************8The Breadh Fisrt Traversal ********\n')
+level_order_traversal(new_tree)
+
+# Insert the node 
+def insert_node(root_node, new_node):
+    ''' Insert a node to the tree'''
+    if not root_node:
+        root_node = new_node
+    temp_queue = Queue()
+    temp_queue.enqueue(root_node)
+    while not temp_queue.is_empty():
+        root = temp_queue.dequeue()
+        if root.data.left_child:
+            temp_queue.enqueue(root.data.left_child)
+            root.data.left_child = new_node
+            return 'added successfully!'
+        if root.right_child:
+            temp_queue.enqueue(root.data.right_child)
+        root.data.right_child = new_node
+        return 'Node successfully added!'
+
+    
