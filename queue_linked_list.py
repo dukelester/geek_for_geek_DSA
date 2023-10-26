@@ -22,3 +22,34 @@ class LinkedList:
         while self.head:
             yield self.head
             self.head = self.head.next
+
+# Create the Queue
+class Queue:
+    ''' The Queue uses the First In First Out => FiFO procedure
+    Create() the Queue, is_empty(), is_full(), enqueue(), dequeue(), peek()
+    delete()
+    
+    '''
+    def __init__(self) -> None:
+        self.linked_list = LinkedList() # Initialize the linked list
+
+    def __str__(self) -> str:
+        return ' '.join([ str(element) for element in self.linked_list ])
+
+    def is_empty(self):
+        ''' Checks if a  queue is empty'''
+        return not self.linked_list.head
+
+    def peek(self):
+        ''' Gets the top element in the list => the head '''
+        if self.is_empty():
+            return 'The Queue is empty!'
+        return self.linked_list.head
+
+    def delete(self):
+        ''' To delete the elements , set the head and tail to None'''
+        if self.is_empty():
+            return ' The queue is already empty'
+        self.linked_list.head = None
+        self.linked_list.tail = None
+        return 'Delete success!'
