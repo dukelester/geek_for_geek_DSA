@@ -74,3 +74,11 @@ class Queue:
         self.linked_list.head = self.linked_list.head.next
         return current_node
 
+# Create the Tree class
+
+class TreeNode:
+    ''' Creating a basic tree node '''
+    def __init__(self, data) -> None:
+        self.data = data
+        self.left_child = None
+        self.right_child = None
