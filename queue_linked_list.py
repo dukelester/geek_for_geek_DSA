@@ -62,3 +62,15 @@ class Queue:
             self.linked_list.tail = new_node
         self.linked_list.tail.next = new_node
         self.linked_list.tail = new_node
+
+    def dequeue(self):
+        ''' remove the first element of the queue '''
+        if self.is_empty():
+            return ' The queue is empty'
+        current_node = self.linked_list.head  # The Head is the  current node
+        if current_node == self.linked_list.tail:
+            self.linked_list.head = None
+            self.linked_list.tail = None
+        self.linked_list.head = self.linked_list.head.next
+        return current_node
+
