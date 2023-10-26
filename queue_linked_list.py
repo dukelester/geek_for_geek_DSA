@@ -53,3 +53,12 @@ class Queue:
         self.linked_list.head = None
         self.linked_list.tail = None
         return 'Delete success!'
+
+    def enqueue(self, value):
+        ''' Add an element to the end of the queue '''
+        new_node = Node(value)
+        if self.is_empty():
+            self.linked_list.head = new_node
+            self.linked_list.tail = new_node
+        self.linked_list.tail.next = new_node
+        self.linked_list.tail = new_node
