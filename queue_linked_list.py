@@ -98,6 +98,17 @@ def preorder_traversal(root_node):
     preorder_traversal(root_node.left_child)
     preorder_traversal(root_node.right_child)
 
+def inorder_traversal(root_node):
+    ''' The inorder traversal => go through the Left subtree, then the root node then
+    the right subtree recursively
+    Left => Root => Right
+    '''
+    if not root_node:
+        return
+    inorder_traversal(root_node.left_child)
+    print(root_node.data)
+    inorder_traversal(root_node.right_child)
+
 new_tree = TreeNode('Drinks')
 print(new_tree.data)
 left_child = TreeNode('Hot')
@@ -117,3 +128,5 @@ new_tree.right_child = right_child
 
 preorder_traversal(new_tree)
 
+print('\n The inorder traversal \n')
+inorder_traversal(new_tree)
