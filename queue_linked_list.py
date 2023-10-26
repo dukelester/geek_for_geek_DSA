@@ -82,3 +82,20 @@ class TreeNode:
         self.data = data
         self.left_child = None
         self.right_child = None
+
+
+# The Tree traversal
+def preorder_traversal(root_node):
+    ''' Taking the root node, check if the node is none( Tree is empty)
+    call tghe recusrsive fubnction on the left and right children
+    
+    Root => Left => Right
+    '''
+    if not root_node:
+        return
+    print(root_node.data)
+    preorder_traversal(root_node.left_child)
+    preorder_traversal(root_node.right_child)
+
+new_tree = TreeNode('Drinks')
+print(new_tree.data)
