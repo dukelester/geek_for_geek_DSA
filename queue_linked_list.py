@@ -100,3 +100,20 @@ def preorder_traversal(root_node):
 
 new_tree = TreeNode('Drinks')
 print(new_tree.data)
+left_child = TreeNode('Hot')
+tea = TreeNode('latte')
+coffee = TreeNode('Mocha')
+left_child.left_child = tea
+left_child.right_child = coffee
+
+right_child = TreeNode('Cold')
+coke = TreeNode('Coke')
+sprite = TreeNode('Sprite')
+right_child.left_child = coke
+right_child.right_child = sprite
+
+new_tree.left_child = left_child
+new_tree.right_child = right_child
+
+preorder_traversal(new_tree)
+
