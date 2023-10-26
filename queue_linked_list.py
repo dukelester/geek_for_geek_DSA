@@ -86,8 +86,9 @@ class TreeNode:
 
 # The Tree traversal
 def preorder_traversal(root_node):
-    ''' Taking the root node, check if the node is none( Tree is empty)
-    call tghe recusrsive fubnction on the left and right children
+    ''' Taking the root node, check if the node is none( Tree is empty),
+    print the root node
+    call the recursive function on the left and right children
     
     Root => Left => Right
     '''
