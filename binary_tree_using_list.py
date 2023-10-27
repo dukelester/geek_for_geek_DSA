@@ -56,6 +56,11 @@ class BinaryTree:
         print(self.tree_list[index])
 
 
+    def level_order_traversal(self, index):
+        ''' Travserse the elements per level '''
+        for i in range(index, self.last_index_used + 1):
+            print(self.tree_list[i])
+
 
 binary_tree = BinaryTree(10) # Creating O(N) for space and O(1) for time
 print(binary_tree.insert_node(34), binary_tree.insert_node(44), binary_tree.insert_node(30)) # O(1)
@@ -71,3 +76,6 @@ binary_tree.inorder_traversal(1)
 
 print('\n postorder traversal \n')
 binary_tree.postorder_traversal(1)
+
+print('\n The level Order traversal \n')
+binary_tree.level_order_traversal(1)
