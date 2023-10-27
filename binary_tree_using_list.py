@@ -47,6 +47,16 @@ class BinaryTree:
         self.inorder_traversal(index * 2 + 1)
 
 
+    def postorder_traversal(self, index):
+        ''' Get the left subtree => get the right subtree => Root'''
+        if index > self.last_index_used:
+            return
+        self.postorder_traversal(index * 2)
+        self.postorder_traversal(index * 2 + 1)
+        print(self.tree_list[index])
+
+
+
 binary_tree = BinaryTree(10) # Creating O(N) for space and O(1) for time
 print(binary_tree.insert_node(34), binary_tree.insert_node(44), binary_tree.insert_node(30)) # O(1)
 print(binary_tree.search_for_node(440))
@@ -58,3 +68,6 @@ binary_tree.insert_node(90)
 binary_tree.preorder_traversal(1)
 print('\ninorder traversal \n')
 binary_tree.inorder_traversal(1)
+
+print('\n postorder traversal \n')
+binary_tree.postorder_traversal(1)
