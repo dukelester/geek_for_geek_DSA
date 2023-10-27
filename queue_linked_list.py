@@ -166,7 +166,8 @@ post_order_traversal(new_tree)
 print('**************8The Breadh Fisrt Traversal ********\n')
 level_order_traversal(new_tree)
 
-# Insert the node 
+# Insert the node
+
 def insert_node(root_node, new_node):
     ''' Insert a node to the tree'''
     if not root_node:
@@ -181,7 +182,30 @@ def insert_node(root_node, new_node):
             return 'added successfully!'
         if root.right_child:
             temp_queue.enqueue(root.data.right_child)
-        root.data.right_child = new_node
-        return 'Node successfully added!'
+            root.data.right_child = new_node
+            return 'Node successfully added!'
 
-    
+def search_binary_tree(root_node, element_to_find):
+    ''' Serach for an element in the binary tree '''
+    if not root_node:
+        return 'Empty Binary tree'
+    temp_queue = Queue()
+    temp_queue.enqueue(root_node)
+    while not temp_queue.is_empty():
+        root = temp_queue.dequeue()
+        if root.data == element_to_find:
+            return 'The element was found'
+        if root.data.left_child:
+            temp_queue.enqueue(root.data.left_child)
+        if root.data.right_child:
+            temp_queue.enqueue(root.data.right_child)
+    return 'Element Not found'
+
+def delete_the_tree(root_node):
+    ''' Delete the tree '''
+    if not root_node:
+        return 'We can not delete an empty tree'
+    root_node.data = None
+    root_node.left_child = None
+    root_node.right_child = None
+    return 'The Binary Tree has been successfully deleted'
